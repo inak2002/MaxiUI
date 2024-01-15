@@ -1,29 +1,61 @@
-<!-- registration.component.html -->
+<div class="outer">
+  <div class="container">
+      <div class="row">
+          <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+              <div class="panel border bg-white">
+                  <div class="panel-heading">
+                      <h3 class="pt-3 font-weight-bold"> Register </h3>
+                  </div>
+                  <div class="panel-body p-3">
+                      <form [formGroup]="registrationForm" >
+                          <div class="form-group pt-3">
+                              <div class="input-field"  [class.error]="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required','firstname')">
+                                  <span class="fa fa-user p-2"> </span>
+                                  <input formControlName="firstname" type="text" placeholder="firstname">
+                              </div>
+                              <small *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required','firstname')" class="text-danger">*firstname is required</small>
+                          </div>
 
-<div>
-    <h2>Register</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div>
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" [(ngModel)]="user.FirstName" required>
+                          <div class="form-group pt-3">
+                            <div class="input-field"  [class.error]="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required','lastname')">
+                                <span class="fa fa-user p-2"> </span>
+                                <input formControlName="lastname" type="text" placeholder="lastname">
+                            </div>
+                            <small *ngIf="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required','lastname')" class="text-danger">*lastname is required</small>
+                        </div>
+
+                        <div class="form-group pt-3">
+                          <div class="input-field"  [class.error]="registrationForm.controls['email'].dirty && registrationForm.hasError('required','email')">
+                              <span class="fa fa-user p-2"> </span>
+                              <input formControlName="email" type="text" placeholder="email">
+                          </div>
+                          <small *ngIf="registrationForm.controls['email'].dirty && registrationForm.hasError('required','email')" class="text-danger">*email is required</small>
+                      </div>
+
+                          <div class="form-group pt-3">
+                              <div class="input-field" [class.error]="registrationForm.controls['password'].dirty && registrationForm.hasError('required','password')" >
+                                  <span class="fa fa-lock p-2"> </span>
+                                  <input formControlName="password" [type]="type" placeholder="Password">
+                                  <span (click)="hideShowPass" class="fa {{eyeIcon}}"></span>
+                              </div>
+                              <small *ngIf="registrationForm.controls['password'].dirty && registrationForm.hasError('required','password')" class="text-danger">*password is required</small>
+                          </div>
+                          <!-- <div class="form-inline fr mt-4">
+                              <a id="forget" class="font-weight-bold">Forget Password?</a>
+                          </div> -->
+                          <button (click)="onRegister()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Register</button>
+                          <div class="text-center pt-4 text-muted">Alredy have an account?<a href="">login</a></div>
+                      </form>
+                  </div>
+                  <div class="mx-3 my-2v py-2 bordert">
+                      <div class="text-center py-3">
+                          <a href="https://www.facebook.com" target="_blank" class="px-2"><img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg" alt=""></a>
+                          <a href="https://www.google.com" target="_blank" class="px-2"><img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""></a>
+                          <a href="https://www.github.com" target="_blank" class="px-2"><img src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png" alt=""></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-      
-      <div>
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" [(ngModel)]="user.LastName" required>
-      </div>
-      
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="user.Email" required>
-      </div>
-      
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="user.Password" required>
-      </div>
-      
-      <button type="submit">Register</button>
-    </form>
   </div>
-  
+</div>
