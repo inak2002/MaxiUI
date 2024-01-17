@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { RegisterService } from '../register.service';
 import ValidateForm from '../helper/validateForm';
@@ -8,17 +8,12 @@ import ValidateForm from '../helper/validateForm';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   type:string="password";
   isText:boolean=false;
   eyeIcon:string="fa-eye-slash";
   registrationForm!:FormGroup;
-  // user = {
-  //   FirstName: '',
-  //   LastName: '',
-  //   Email: '',
-  //   Password: ''
-  // };
+
 
   constructor(private fb:FormBuilder,private rs:RegisterService){}
   ngOnInit(): void {
@@ -38,6 +33,9 @@ export class RegisterComponent {
       if(this.registrationForm.valid){
         //send obj to database
         console.log(this.registrationForm.value)
+       
+//         console.log('Request Payload:', this.registrationForm.value);
+// this.rs.registerUser(this.registrationForm.value)
         this.rs.registerUser(this.registrationForm.value)
         .subscribe({
           next:(res)=>{
@@ -55,16 +53,7 @@ export class RegisterComponent {
         ValidateForm.validateAllFormFields(this.registrationForm);
         alert("Your form is invalid")
       }
-     }
-  // onSubmit() {
-  //   // Handle registration logic here
-  //   this.registerUser().subscribe(response =>{    //call back method
-  //     alert("User registration done")
-  //     console.log('User registered:', this.user);
-  //   }); 
-   
-    // You should send this data to the backend for further processing
-  }
+     } }
   
 
 
