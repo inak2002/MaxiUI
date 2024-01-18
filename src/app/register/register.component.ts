@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { RegisterService } from '../register.service';
 import ValidateForm from '../helper/validateForm';
+import { customEmailValidator } from '../helper/customValidator';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
   isText:boolean=false;
   eyeIcon:string="fa-eye-slash";
   registrationForm!:FormGroup;
+  message:string='registration success';
 
 
   constructor(private fb:FormBuilder,private rs:RegisterService){}
@@ -20,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.registrationForm=this.fb.group({
       firstname:['',Validators.required],  //this is the form control name
       lastname:['',Validators.required], //this is the form contol name
-      email:['',Validators.required],
+      email:['',[Validators.required,customEmailValidator()]],
       password:['',Validators.required]
     })
     }
@@ -32,21 +34,24 @@ export class RegisterComponent implements OnInit {
      onRegister(){
       if(this.registrationForm.valid){
         //send obj to database
-        console.log(this.registrationForm.value)
+       
        
 //         console.log('Request Payload:', this.registrationForm.value);
 // this.rs.registerUser(this.registrationForm.value)
         this.rs.registerUser(this.registrationForm.value)
         .subscribe({
-          next:(res)=>{
+          next:(res=>{
             alert(res.message);
             this.registrationForm.reset();
            // this.router.navigate(['dashboard']);
-          },
-          error:(err)=>{
-            alert(err.error.message)
-          }
+           
+          }),
+          error:(err=>{
+            console.error(err);
+            alert('registration failed');
+          })
         })
+ console.log(this.registrationForm.value)
       }else{
       
         //throw the error using toaster and with required fields
