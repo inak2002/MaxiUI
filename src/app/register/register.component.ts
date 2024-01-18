@@ -3,6 +3,7 @@ import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { RegisterService } from '../register.service';
 import ValidateForm from '../helper/validateForm';
 import { customEmailValidator } from '../helper/customValidator';
+import { passwordValidator } from '../helper/passwordValidator';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
       firstname:['',Validators.required],  //this is the form control name
       lastname:['',Validators.required], //this is the form contol name
       email:['',[Validators.required,customEmailValidator()]],
-      password:['',Validators.required]
+      password:['',[Validators.required,passwordValidator()]]
     })
     }
      hideShowPass(){
