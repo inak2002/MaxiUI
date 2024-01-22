@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class RegisterService {
   private apiUrl:string="https://localhost:44335/api/v1/User/Register";
   private apiUrl1:string="https://localhost:44335/api/v1/User/Login";
+ 
   constructor(private _http:HttpClient) { }
   registerUser(regobj:any):Observable<any>{                                                        //: Observable<any>
     //var body = {user:this.user}
@@ -18,4 +19,6 @@ export class RegisterService {
   loginUser(loginobj:any):Observable<any>{
     return this._http.post<any>(this.apiUrl1,loginobj)
   }
+
+ 
 }
