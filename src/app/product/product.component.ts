@@ -14,6 +14,14 @@ export class ProductComponent {
   ngOnInit(): void {
     this.ps.getProducts().subscribe((data) => {
       this.products = data;
+
+       // Check if data is an array or not
+    // if (Array.isArray(data)) {
+    //   this.products = data;
+    // } else {
+    //   console.error('Unexpected data format:', data);
+    //   this.products = [];
+    // }
     });
   }
 }
