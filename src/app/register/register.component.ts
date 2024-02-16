@@ -12,6 +12,7 @@ import { passwordValidator } from '../helper/passwordValidator';
 })
 export class RegisterComponent implements OnInit {
   type:string="password";
+
   isText:boolean=false;
   eyeIcon:string="fa-eye-slash";
   registrationForm!:FormGroup;
@@ -22,27 +23,31 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registrationForm=this.fb.group({
       firstname:['',Validators.required],  //this is the form control name
+
       lastname:['',Validators.required], //this is the form contol name
       email:['',[Validators.required,customEmailValidator()]],
       password:['',[Validators.required,passwordValidator()]]
     })
     }
      hideShowPass(){
+      debugger;
       this.isText=!this.isText;
       this.isText ? this.eyeIcon="fa-eye":this.eyeIcon="fa-eye-slash";
       this.isText ? this.type="text":this.type="password";
      }
      onRegister(){
+      
       if(this.registrationForm.valid){
         //send obj to database
        
        
-//         console.log('Request Payload:', this.registrationForm.value);
-// this.rs.registerUser(this.registrationForm.value)
+        console.log('Request Payload:', this.registrationForm.value);
+this.rs.registerUser(this.registrationForm.value)
         this.rs.registerUser(this.registrationForm.value)
         .subscribe({
           next:(res=>{
-            alert(res.message);
+            console.log('Registration Response:', res);
+            alert(res?.displayMessage);
             this.registrationForm.reset();
            // this.router.navigate(['dashboard']);
            

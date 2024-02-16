@@ -1,7 +1,7 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export function passwordValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
+  return (control: AbstractControl): ValidationErrors|null  => {
     const value = control.value;
 
     // Check if the password contains at least one special character, one number, and one alphabet

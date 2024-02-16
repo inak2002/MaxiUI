@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { customEmailValidator } from 'src/app/helper/customValidator';
 import ValidateForm from 'src/app/helper/validateForm';
 import { RegisterService } from 'src/app/register.service';
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit{
   constructor(private fb:FormBuilder,private rs:RegisterService,private router:Router){}
  ngOnInit(): void {
   this.loginForm=this.fb.group({
-    username:['',Validators.required],  //this is the form control name
+    email:['',[Validators.required,customEmailValidator()]],  //this is the form control name
     password:['',Validators.required]   //this is the form contol name
   })
  }
@@ -28,20 +29,18 @@ export class LoginComponent implements OnInit{
     this.isText ? this.type="text":this.type="password";
    }
    onLogin(){
+   //debugger;
     if(this.loginForm.valid){
       //send obj to database
-      console.log(this.loginForm.value)
+    //  console.log(this.loginForm.value)
+  
       this.rs.loginUser(this.loginForm.value)
-      .subscribe({
-        next:(res)=>{
-          alert(res.message);
+      .subscribe({next:(res)=>{
+          console.log('res',res.result.token)
           this.loginForm.reset();
-          this.router.navigate(['dashboard']);
-        },
-        error:(err)=>{
-          alert(err.error.message)
-        }
-      })
+          localStorage.setItem('token',res.result.token)
+          this.router.navigate(['product'])
+      }})
     }else{
     
       //throw the error using toaster and with required fields

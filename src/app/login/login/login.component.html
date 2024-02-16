@@ -9,17 +9,17 @@
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm" >
                             <div class="form-group pt-3">
-                                <div class="input-field"  [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                                <div class="input-field"  [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">
                                     <span class="fa fa-user p-2"> </span>
-                                    <input formControlName="username" type="text" placeholder="Username">
+                                    <input formControlName="email" type="text" placeholder="email">
                                 </div>
-                                <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*username is required</small>
+                                <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" class="text-danger">*email is required</small>
                             </div>
                             <div class="form-group pt-3">
                                 <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" >
                                     <span class="fa fa-lock p-2"> </span>
                                     <input formControlName="password" [type]="type" placeholder="Password">
-                                    <span (click)="hideShowPass" class="fa {{eyeIcon}}"></span>
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
                                 </div>
                                 <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*password is required</small>
                             </div>
