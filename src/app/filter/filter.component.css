@@ -1,0 +1,47 @@
+.header {
+    background-color: #333; /* Change the background color to your preference */
+    color: #fff; /* Change the text color to your preference */
+    padding: 10px 20px; /* Add padding to the header */
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Align items horizontally with space between them */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .header-right {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .header-right input[type="text"] {
+    margin-right: 10px; /* Add some space between input boxes */
+    padding: 5px; /* Add padding to input boxes */
+    border-radius: 5px; /* Add border radius to input boxes */
+    border: 1px solid #ccc; /* Add border to input boxes */
+  }
+  
+  .header-right button {
+    padding: 5px 10px; /* Add padding to button */
+    border-radius: 5px; /* Add border radius to button */
+    border: none; /* Remove border from button */
+    background-color: #007bff; /* Change the background color of the button */
+    color: #fff; /* Change the text color of the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .header-right button:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+  }
+  .card img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+.card img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+.card{
+    padding: 20px;
+    margin: 50px;
+}

@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login/login.component';
 import { ProductComponent } from './product/product.component';
 import { AuthInterceptor } from './helper/authinterceptor';
 import { ProductfunctionsComponent } from './productfunctions/productfunctions.component';
+import { ProductupdateComponent } from './productupdate/productupdate.component';
+import { FilterComponent } from './filter/filter.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { ProductfunctionsComponent } from './productfunctions/productfunctions.c
     LoginComponent,
     ProductComponent,
     ProductfunctionsComponent,
+    ProductupdateComponent,
+    FilterComponent,
    
   ],
   imports: [

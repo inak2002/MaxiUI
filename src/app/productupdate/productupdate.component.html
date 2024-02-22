@@ -1,0 +1,45 @@
+<div class="ng-container">
+    <div>
+        <label for="id">productId</label>
+        <input type="text" [(ngModel)] ="newProduct.id">
+     </div>
+
+    <div>
+    <label for="categoryId">categoryId</label>
+    <input type="text" [(ngModel)] ="newProduct.categoryId">
+    </div>
+    
+    <div>
+    <label for="brandId">brandId</label>
+    <input type="text" [(ngModel)] ="newProduct.brandId">
+    </div>
+    
+    <div>
+    <label for="name">name</label>
+    <input type="text" [(ngModel)] ="newProduct.name">
+    </div>
+    
+    <div>
+    <label for="specification">specification</label>
+    <input type="text" [(ngModel)] ="newProduct.specification">
+    </div>
+    
+    <div>
+    <label for="price">price</label>
+    <input type="text" [(ngModel)] ="newProduct.price">
+    </div>
+    
+    <div>
+    <label for="imageurl">imageurl</label>
+    <input type="text" [(ngModel)] ="newProduct.imageurl">
+    </div>
+    <button (click)="EditProduct()">Edit</button>
+
+    <div class="ng-container">
+      <label for="id">ID</label>
+      <input type="number" [(ngModel)] ="id">
+      <button (click)="RemoveProduct()">Delete</button>
+    </div>
+  
+  </div>  
+ 

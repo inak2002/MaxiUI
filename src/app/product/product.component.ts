@@ -8,7 +8,7 @@ import { ProductsService } from '../products.service';
 })
 export class ProductComponent {
   products: any[] = [];
-
+ 
   constructor(private ps: ProductsService) {}
 
   ngOnInit(): void {
@@ -24,4 +24,6 @@ export class ProductComponent {
     // }
     });
   }
+ 
+
 }
