@@ -8,21 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
+  constructor(private ps:ProductsService,private router:Router){}
+  
+  filteredProducts:any=[]
 
   f: any = {
     categoryId:1,
     brandId:4
   }
-
-  constructor(private ps:ProductsService,private router:Router){}
-  filteredProducts:any=[]
-
   submitSearch(){
-   // debugger
-    this.ps.filterProduct(this.f.categoryId,this.f.brandId).subscribe(res=>{
-     this.filteredProducts=res.result
-      this.router.navigate(['filter'])
-    })
-}
-
-}
+    // debugger
+     this.ps.filterProduct(this.f.categoryId,this.f.brandId).subscribe(res=>{
+      this.filteredProducts=res.result
+       this.router.navigate(['filter'])
+     })
+ }
+ 
+ }

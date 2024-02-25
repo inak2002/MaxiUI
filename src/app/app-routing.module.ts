@@ -6,6 +6,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductfunctionsComponent } from './productfunctions/productfunctions.component';
 import { ProductupdateComponent } from './productupdate/productupdate.component';
 import { FilterComponent } from './filter/filter.component';
+import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
   {path:'register',component:RegisterComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'product',component:ProductComponent},
   {path:'post',component:ProductfunctionsComponent},
   {path:'put',component:ProductupdateComponent},
-  {path:'filter',component:FilterComponent}
+  {path:'filter',component:FilterComponent},
+  {path:'Post',component:PostComponent}
 ];
 
 @NgModule({

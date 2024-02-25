@@ -1,0 +1,36 @@
+<div>
+    <label>Category:</label>
+    <select [(ngModel)]="postData.categoryId">
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+  
+  <div>
+    <label>Brand:</label>
+    <select [(ngModel)]="postData.brandId">
+      <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.name }}</option>
+    </select>
+  </div>
+  
+  <div>
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="postData.name">
+  </div>
+  
+  <div>
+    <label>Specification:</label>
+    <input type="text" [(ngModel)]="postData.specification">
+  </div>
+  
+  <div>
+    <label>Price:</label>
+    <input type="number" [(ngModel)]="postData.price">
+  </div>
+  
+  <div>
+    <label>Image URL:</label>
+    <input type="text" [(ngModel)]="postData.imageurl">
+  </div>
+  
+  <button (click)="submit()">Submit</button>
+  

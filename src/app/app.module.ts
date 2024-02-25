@@ -13,6 +13,7 @@ import { AuthInterceptor } from './helper/authinterceptor';
 import { ProductfunctionsComponent } from './productfunctions/productfunctions.component';
 import { ProductupdateComponent } from './productupdate/productupdate.component';
 import { FilterComponent } from './filter/filter.component';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FilterComponent } from './filter/filter.component';
     ProductfunctionsComponent,
     ProductupdateComponent,
     FilterComponent,
+    PostComponent,
    
   ],
   imports: [

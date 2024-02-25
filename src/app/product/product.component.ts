@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +10,8 @@ import { ProductsService } from '../products.service';
 export class ProductComponent {
   products: any[] = [];
  
-  constructor(private ps: ProductsService) {}
+ 
+  constructor(private ps:ProductsService,private router:Router) {}
 
   ngOnInit(): void {
     this.ps.getProducts().subscribe((data) => {
